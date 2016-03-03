@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Cardoso on 03-Mar-16.
@@ -63,8 +64,8 @@ public class MandelbrotApp extends Application {
         File file = new File("MandelbrotImage.png");
         try {
             ImageIO.write(SwingFXUtils.fromFXImage(imageOut, null), "png", file);
-        } catch (Exception s) {
-        }
+        } catch (IOException e) {
+            e.printStackTrace();}
     }
 
     private void paintSet(GraphicsContext ctx, double reMin, double reMax, double imMin, double imMax) {
