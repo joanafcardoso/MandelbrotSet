@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Cardoso on 29-Feb-16.
@@ -92,7 +93,8 @@ public class MandelbrotWithZoom extends Application {
         File file = new File("MandelbrotImage.png");
         try {
             ImageIO.write(SwingFXUtils.fromFXImage(imageOut, null), "png", file);
-        } catch (Exception s) {
+        } catch (IOException e) {
+             e.printStackTrace();
         }
 
         Image MandelbrotImage = new Image ("file:MandelbrotImage.png");
